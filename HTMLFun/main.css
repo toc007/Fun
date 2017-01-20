@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+.Header{
+	text-align: center;
+	border: solid 1px;
+}
+
+.Header h1 {
+	font-family: Pacifico;
+	margin: 0px;
+	margin-bottom: .5rem;
+}
+
+.Header h3 {
+	margin: 0px;
+}
+
+.Summary {
+	border: 1px solid;
+}
+
+.Summary h3 {
+	margin: 1rem;
+	margin-bottom: 0px;
+}
+
+.Summary p {
+	margin: 2rem;
+	margin-top: .5rem;
+}
+
+.Highlights {
+	border: 1px blue solid;
+}
+
+.Highlights h3 {
+	margin: 1rem;
+	margin-bottom: 0px;
+}
+
+.Summary li {
+	margin: 2rem;
+	margin-top: .5rem;
+}
