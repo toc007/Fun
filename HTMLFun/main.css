@@ -1,45 +1,43 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 
-.Header{
+
+header {
+	padding: 20px 0;
+}
+
+header .row,
+footer .row {
+	display: flex;
+	align-items: center;
+}
+
+header h1 {
+	font-weight: 700;
+	margin: 0;
+	display: flex;
+}
+
+header nav {
+	display: flex;
+	justify-content: flex-end;
+}
+
+header a {
+	padding: 0 20px;
+	margin: 0;
+}
+
+/*
+.row{
+	display: flex;
 	text-align: center;
 	border: solid 1px;
 }
+*/
 
-.Header h1 {
-	font-family: Pacifico;
+#name {
+	font-family: Bungee Shade, Pacifico;
 	margin: 0px;
 	margin-bottom: .5rem;
-}
-
-.Header h3 {
-	margin: 0px;
-}
-
-.Summary {
-	border: 1px solid;
-}
-
-.Summary h3 {
-	margin: 1rem;
-	margin-bottom: 0px;
-}
-
-.Summary p {
-	margin: 2rem;
-	margin-top: .5rem;
-}
-
-.Highlights {
-	border: 1px blue solid;
-}
-
-.Highlights h3 {
-	margin: 1rem;
-	margin-bottom: 0px;
-}
-
-.Summary li {
-	margin: 2rem;
-	margin-top: .5rem;
 }
