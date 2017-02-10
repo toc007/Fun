@@ -2,8 +2,7 @@
 
 from bs4 import BeautifulSoup
 
-soup = BeautifulSoup(open("./porn.html"))
+soup = BeautifulSoup(open("./cseCourse.html", 'r'))
 
-print(soup.prettify())
-
+soup.select('#course-name')
 
