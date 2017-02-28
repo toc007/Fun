@@ -1,10 +1,11 @@
 #!/usr/bin/python2
 
-import webbrowser
-import re
+import urllib2
 from bs4 import BeautifulSoup
 
-fio = open("../data/cseCourse.html")
+url = urllib2.urlopen("http://ucsd.edu/catalog/courses/CSE.html")
+
+fio = url.read()
 
 soup = BeautifulSoup(fio, "html.parser")
 
@@ -13,5 +14,4 @@ courses = soup.select('.course-name')
 for val in courses:
     string = val.string
     courseName = string.split(".")
-    couseName = string.split(r"\w")
     print courseName[0]
