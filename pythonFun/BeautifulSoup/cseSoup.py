@@ -3,7 +3,7 @@
 import urllib2
 from bs4 import BeautifulSoup
 
-url = urllib2.urlopen("http://ucsd.edu/catalog/courses/CSE.html")
+url = urllib2.urlopen("http://www.ucsd.edu/catalog/courses/ANTH.html")
 
 fio = url.read()
 

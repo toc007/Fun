@@ -25,8 +25,9 @@ for var in courses:
         csoup = BeautifulSoup(chtml, "html.parser")
         ccourses = csoup.select('.course-name')
         for val in ccourses:
+            print val
             string = val.string
             if string is not None:
                 courseName = string.split(".")
-                res = '\"' + courseName[0] + '\",'
-                print (res).encode('utf-8')
+                res = '\"' + courseName[0] + '\",\n'
+                f.write((res).encode('utf-8'))
