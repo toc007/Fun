@@ -1,24 +1,32 @@
 #!/usr/bin/python
 
 def kthElem(arr1, arr2, k):
-    if len(arr1) + len(arr2) >= k:
-        print "k value is too big!!"
-        return -1
     if k == 0:
         return min(arr1[0], arr2[0])
-    if len(arr1) == 0:
+
+    size1 = len(arr1)
+    size2 = len(arr2)
+
+    if size1 == 0:
         return arr2[k]
-    if len(arr2) == 0:
+    if size2 == 0:
         return arr1[k]
 
-    mid1 = len(arr1)/2
-    mid2 = len(arr2)/2
+    mid1 = size1/2
+    mid2 = size2/2
 
-    if mid1 + mid2 > k:
-        if arr1[mid1] > arr2[mid2]:
+    print k
+    print arr1
+    print arr2
+    
+    if arr1[mid1] > arr2[mid2]:
+        # get rid of smaller half
+        if mid1 > k:
             return kthElem(arr1, arr2[mid2+1:], k - mid2)
+        # get rid of bigger half
         else:
-            return kthElem(arr1[mid1+1:], arr2, k - mid1)
+            return kthElem(arr1[:mid1], arr2, k - size1 + mid1)
+    # arr1[mid1] <= arr2[mid2]
     else: 
         if arr1[mid1] > arr2[mid2]:
             return kthElem(arr1[:mid1], arr2, k)

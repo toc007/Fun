@@ -19,6 +19,4 @@ def printMatrix(foo):
         print 
 
 x = createMatrix(6,4)
-printMatrix(x)
-x[0][1] = 1
-printMatrix(x)
+print x
