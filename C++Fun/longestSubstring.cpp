@@ -12,24 +12,33 @@ public:
 
     int longSubstring(string s)
     {
-        int hist[256] {-1};
+        int hist[256];
+       fill_n(hist, 256, -1);
         string substr = "";
         int subLength = -1;
         int subIndex = 0;
+        
+        for(int i:hist) {
+            cout << i << ", ";
+        }
+        cout << endl;
 
-        for (int i = 0; i < s.length(); i++)
-        {
+        for (int i = 0; i < s.length(); i++) {
             unsigned char c = tolower(s[i]);
+            cout << "looking at character " << c << endl;
 
-            if(hist[c] == -1)
+            if(hist[c] == -1) {
+                cout << "adding character " << c << endl;
                 hist[c] = i;
+            }
             else {
                 int temp = subIndex;
                 subIndex = hist[c] + 1;
 
-                for(int j=temp; j<subIndex; j++) 
+                for(int j=temp; j<subIndex; j++) {
+                    cout << "Removing " << s[j] << endl;
                     hist[(unsigned char)s[j]] = -1;
-
+                }
                 hist[c] = i;
             }
 
@@ -37,6 +46,7 @@ public:
                 subLength = i - subIndex + 1;
                 substr = s.substr(subIndex, subLength);
                 hist[c] = i;
+                cout << "substr is now " << substr << endl;
             }
         }
 
