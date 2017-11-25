@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include "sys/types.h"
+
+int main() {
+	printf("Char size:\t%lu", sizeof(char));
+	//printf("u_char size:\t%lu", sizeof(u_char));
+	printf("short size:\t%lu\n", sizeof(short));
+	printf("uint16_t size:\t%lu\n", sizeof(uint16_t));
+	//printf("u_short size:\t%lu", sizeof(u_short));
+}

@@ -24,3 +24,11 @@ vector<long> findDivisors(long n) {
     return res;
 }
 
+int main() {
+	int div;
+	cin >> div;
+	auto res = findDivisors(div);
+	cout << "Size:\t" << res.size() << endl;
+	for(auto i:res)
+		cout << i << endl;
+}
