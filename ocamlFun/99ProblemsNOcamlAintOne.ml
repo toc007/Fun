@@ -34,5 +34,62 @@ let rev l =
 
 (* Find if a list is a palendrome *)
 let rec is_palindrome l = 
-    let (orig, rev) = (l, rev l) in
+    l = (rev l)
+(*
+let rec palendromeHelper l rl =
+    match (l, rl) with
+        | ([],[]) -> true
+        | (hl::tl, hr::tr) when hl = hr -> palendromeHelper tl tr
+        | _ -> false
+in
+palendromeHelper l (rev l);;
+*)
 
+(* Flatten a nested list structure *)
+type 'a node =
+    | One of 'a 
+    | Many of 'a node list;;
+
+let rec flatten l =
+    match l with
+        | [] -> []
+        | (One h)::t -> h::(flatten t)
+        | (Many h)::t -> (flatten h)@(flatten t);;
+
+(* Eliminate consecutive duplicates of list elements *)
+let rec compress l =
+    match l with
+        | [] -> []
+        | h::[] -> [h]
+        | h1::(h2::t) when h1 = h2 -> compress (h1::t)
+        | h1::(h2::t) -> h1::(compress (h2::t));;
+
+(* Pack consecutive duplicates of list elements into sublists *)
+let rec pack l = 
+    match l with
+        | [] -> []
+        | h::t -> 
+                let res = pack t in
+                match res with 
+                    | [] -> [[h]]
+                    | rh::rt -> 
+                            let rhh::rtt = rh in
+                            if rhh = h then
+                                (h::rh)::rt
+                            else
+                                [h]::res;;
+
+let encode l =
+    let packed = pack l in 
+    List.map (fun x -> (List.length x, List.hd x)) packed;;
+
+type 'a rle =
+    | One of 'a
+    | Many of int * 'a;;
+
+let modEncode l = 
+    let packed = pack l in
+    let mapfn x = 
+        if (List.length x) > 1 then Many (List.length x, List.hd x) else One List.hd x
+    in
+    map mapfn packed;;
